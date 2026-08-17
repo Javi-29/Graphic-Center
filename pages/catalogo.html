@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Productos — Graphic Center Plus</title>
+<meta name="description" content="Explora el catálogo completo de productos y servicios de Graphic Center Plus.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../index.html" class="logo-link">
+      <img src="../assets/img/logo.png" alt="Graphic Center Plus">
+      <span>Graphic Center <span class="accent">Plus</span></span>
+    </a>
+    <nav class="main-nav chip">
+      <a href="servicios.html">Servicios</a>
+      <a href="../index.html#portafolio">Portafolio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="../index.html#nosotros">Nosotros</a>
+      <a href="../index.html#contacto" class="contact-link">Contacto</a>
+    </nav>
+    <a href="../index.html#contacto" class="btn btn-solid header-cta chip">Cotizar</a>
+    <button id="menuBtn" class="menu-btn" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu chip">
+    <a href="servicios.html">Servicios</a>
+    <a href="../index.html#portafolio">Portafolio</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="../index.html#nosotros">Nosotros</a>
+    <a href="../index.html#contacto">Contacto</a>
+  </div>
+</header>
+
+<!-- ===== ENCABEZADO DEL CATÁLOGO ===== -->
+<section class="catalog-hero">
+  <div class="container">
+    <span class="eyebrow chip">· Catálogo 2026 ·</span>
+    <h1>Todo lo que <span style="color:var(--color-magenta)">producimos</span>, en un solo lugar</h1>
+    <p>Impresión, diseño y soluciones publicitarias — revisa el catálogo completo aquí abajo o descárgalo en PDF.</p>
+  </div>
+</section>
+
+<!-- ===== VISOR DEL PDF ===== -->
+<div class="catalog-viewer-wrap">
+  <iframe id="catalogFrame" class="catalog-frame" src="../assets/pdf/catalogo.pdf" title="Catálogo Graphic Center Plus"></iframe>
+
+  <!-- Respaldo: se muestra automáticamente si el navegador (típico en móvil) no puede
+       renderizar el PDF embebido. Ver js/script.js -->
+  <div id="catalogFallback" class="catalog-fallback">
+    <p>Tu dispositivo no puede mostrar el catálogo directamente aquí.</p>
+    <p style="margin-top:0.5rem;"><strong>Descárgalo o ábrelo en una pestaña nueva:</strong></p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="catalog-actions">
+    <a href="../assets/pdf/catalogo.pdf" target="_blank" class="btn btn-outline chip">Abrir en pestaña nueva</a>
+    <a href="../assets/pdf/catalogo.pdf" download class="btn btn-magenta chip">Descargar PDF</a>
+  </div>
+</div>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="section contact-section">
+  <div class="container inner reveal">
+    <p class="eyebrow chip" style="color:var(--color-cyan)">¿Viste algo que te interesa?</p>
+    <h2>Pide tu cotización<br>de este producto</h2>
+    <div class="contact-actions">
+      <a href="https://wa.me/50700000000" target="_blank" class="btn btn-magenta chip">Escríbenos por WhatsApp</a>
+      <a href="mailto:hola@graphiccenterplus.com" class="btn btn-outline chip">Enviar correo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <span class="brand">Graphic Center <span class="accent">Plus</span></span>
+    <span>© 2026 Graphic Center Plus. Todos los derechos reservados.</span>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

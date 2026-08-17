@@ -1,0 +1,154 @@
+/* ==========================================================================
+   DEMO — Tarjetas de servicio con foto (protagonismo visual)
+   Este CSS es SOLO para esta prueba. No toca el css/style.css original.
+   Si la idea se aprueba, este bloque se mueve al style.css definitivo.
+   ========================================================================== */
+
+.photo-section { padding: 7rem 0; background: var(--color-paper); }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .photo-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .photo-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Dos tarjetas destacadas más grandes (primera fila) */
+.photo-card.is-featured {
+  grid-column: span 1;
+}
+@media (min-width: 1024px) {
+  .photo-grid .photo-card:nth-child(1),
+  .photo-grid .photo-card:nth-child(2) {
+    grid-column: span 1;
+  }
+}
+
+.photo-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--color-ink);
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.photo-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: saturate(0.9);
+}
+
+.photo-card:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.05);
+}
+
+/* Degradado para legibilidad del texto */
+.photo-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11,11,12,0.92) 0%,
+    rgba(11,11,12,0.55) 32%,
+    rgba(11,11,12,0.05) 60%,
+    rgba(11,11,12,0.25) 100%
+  );
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.photo-card:hover::before {
+  background: linear-gradient(
+    to top,
+    rgba(11,11,12,0.95) 0%,
+    rgba(11,11,12,0.7) 45%,
+    rgba(11,11,12,0.15) 70%,
+    rgba(11,11,12,0.3) 100%
+  );
+}
+
+.photo-card-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.75rem;
+  color: white;
+}
+
+.photo-card-num {
+  font-size: 0.7rem;
+  color: var(--color-cyan);
+  margin-bottom: auto;
+}
+.photo-card:nth-child(3n+2) .photo-card-num,
+.photo-card:nth-child(3n+3) .photo-card-num { color: var(--color-magenta); }
+
+.photo-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.photo-card-desc {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.75);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+  margin-top: 0;
+}
+
+.photo-card:hover .photo-card-desc,
+.photo-card:focus-within .photo-card-desc {
+  max-height: 6rem;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+.photo-card-tag {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 2;
+  width: 20px; height: 20px;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 9999px;
+}
+.photo-card-tag::before, .photo-card-tag::after {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.6);
+}
+.photo-card-tag::before { width: 30px; height: 1px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.photo-card-tag::after { height: 30px; width: 1px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+.photo-note {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  background: rgba(31,173,224,0.08);
+  border-left: 2px solid var(--color-cyan);
+  font-size: 0.875rem;
+  color: rgba(11,11,12,0.7);
+}
+.photo-note code {
+  background: rgba(11,11,12,0.06);
+  padding: 0.1rem 0.4rem;
+  font-size: 0.8em;
+}
