@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Graphic Center Plus</title>
+<meta name="description" content="Contáctanos por WhatsApp, Instagram o correo. Cuéntanos qué necesitas y te respondemos directo.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../index.html" class="logo-link">
+      <img src="../assets/img/logo.png" alt="Graphic Center Plus">
+      <span>Graphic Center <span class="accent">Plus</span></span>
+    </a>
+    <nav class="main-nav chip">
+      <a href="servicios.html">Servicios</a>
+      <a href="../index.html#portafolio">Portafolio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="../index.html#nosotros">Nosotros</a>
+      <a href="contacto.html" class="contact-link">Contacto</a>
+    </nav>
+    <a href="contacto.html" class="btn btn-solid header-cta chip">Cotizar</a>
+    <button id="menuBtn" class="menu-btn" aria-label="Abrir menú"><span></span><span></span></button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu chip">
+    <a href="servicios.html">Servicios</a>
+    <a href="../index.html#portafolio">Portafolio</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="../index.html#nosotros">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+</header>
+
+<!-- ===== ENCABEZADO ===== -->
+<section class="catalog-hero" style="padding-bottom:1rem;">
+  <div class="container">
+    <span class="eyebrow chip">· Estamos para ayudarte ·</span>
+    <h1 style="font-size:2.75rem;">Hablemos de tu <span style="color:var(--color-magenta)">próximo proyecto</span></h1>
+    <p>Escríbenos por el canal que prefieras, o llena el formulario y te contactamos nosotros.</p>
+  </div>
+</section>
+
+<!-- ===== CANALES DIRECTOS ===== -->
+<section class="section" style="padding-top:3rem;">
+  <div class="container">
+    <div class="contact-channels">
+
+      <!-- WhatsApp (preferido) -->
+      <a href="https://wa.me/50700000000" target="_blank" class="channel-card is-primary reveal">
+        <span class="tag-preferred chip">Preferido</span>
+        <span class="channel-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.5 8.5 0 0 1-12.36 7.56L3 20l1.06-5.44A8.5 8.5 0 1 1 21 11.5Z"></path>
+            <path d="M8.5 10.5c0 3 2.5 5.5 5.5 5.5"></path>
+          </svg>
+        </span>
+        <h3 class="font-display">WhatsApp</h3>
+        <p>Respuesta rápida, ideal para cotizaciones urgentes.</p>
+        <span class="channel-value">+507 0000-0000</span>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/graphiccenterplus" target="_blank" class="channel-card reveal">
+        <span class="channel-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </span>
+        <h3 class="font-display">Instagram</h3>
+        <p>Mira nuestro trabajo reciente y escríbenos por DM.</p>
+        <span class="channel-value">@graphiccenterplus</span>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:hola@graphiccenterplus.com" class="channel-card reveal">
+        <span class="channel-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="m4 7 8 6 8-6"></path>
+          </svg>
+        </span>
+        <h3 class="font-display">Correo</h3>
+        <p>Para solicitudes formales o adjuntar archivos de diseño.</p>
+        <span class="channel-value">hola@graphiccenterplus.com</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMULARIO ===== -->
+<section class="section" style="padding-top:0; padding-bottom:6rem;">
+  <div class="container">
+    <form id="contactForm" class="contact-form-wrap reveal">
+      <h2>Cuéntanos qué necesitas</h2>
+      <p>Llena el formulario y elige si quieres enviarlo por WhatsApp o por correo — se abre ya redactado, con tus datos.</p>
+
+      <div class="form-row">
+        <label for="cf-name">Nombre *</label>
+        <input type="text" id="cf-name" name="cf-name" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="form-two-col">
+        <div class="form-row">
+          <label for="cf-contact">Teléfono o correo</label>
+          <input type="text" id="cf-contact" name="cf-contact" placeholder="Para que te respondamos">
+        </div>
+        <div class="form-row">
+          <label for="cf-service">Servicio de interés</label>
+          <select id="cf-service" name="cf-service">
+            <option value="">Selecciona uno (opcional)</option>
+            <option value="DTF Textil">DTF Textil</option>
+            <option value="DTF UV">DTF UV</option>
+            <option value="Corte de vinil">Corte de vinil</option>
+            <option value="Impresión en vinil">Impresión en vinil</option>
+            <option value="Microperforado">Microperforado</option>
+            <option value="Banners y lonas">Banners y lonas</option>
+            <option value="Señalética">Señalética</option>
+            <option value="Promocionales">Promocionales</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="cf-message">Cuéntanos los detalles *</label>
+        <textarea id="cf-message" name="cf-message" placeholder="Cantidad, medidas, fecha que necesitas, referencias..." required></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" id="sendWhatsapp" class="btn btn-magenta chip">Enviar por WhatsApp</button>
+        <button type="button" id="sendEmail" class="btn btn-outline chip" style="border-color:rgba(255,255,255,0.25); color:white;">Enviar por correo</button>
+      </div>
+
+      <p class="form-note">Al enviar, se abrirá WhatsApp o tu app de correo con el mensaje ya redactado — tú confirmas el envío final.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <span class="brand">Graphic Center <span class="accent">Plus</span></span>
+    <span>© 2026 Graphic Center Plus. Todos los derechos reservados.</span>
+    <div class="footer-social">
+      <a href="https://instagram.com/graphiccenterplus" target="_blank">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>
