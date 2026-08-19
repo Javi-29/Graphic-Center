@@ -44,6 +44,16 @@ img { max-width: 100%; display: block; }
 }
 
 /* ==========================================================================
+   Barra bicolor — elemento de firma (cyan + magenta), como el logo
+   ========================================================================== */
+
+.duo-bar {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, var(--color-cyan) 0%, var(--color-cyan) 50%, var(--color-magenta) 50%, var(--color-magenta) 100%);
+}
+
+/* ==========================================================================
    Layout utilidades básicas
    ========================================================================== */
 
@@ -67,6 +77,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.08em;
   font-size: 0.875rem;
   border: 1px solid transparent;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
@@ -78,11 +89,13 @@ img { max-width: 100%; display: block; }
 .btn-solid:hover { background: var(--color-magenta); }
 
 .btn-outline {
-  border-color: rgba(11,11,12,0.2);
+  border-color: var(--color-cyan);
+  color: var(--color-ink);
 }
 .btn-outline:hover {
+  background: var(--color-cyan);
   border-color: var(--color-cyan);
-  color: var(--color-cyan);
+  color: white;
 }
 
 .btn-magenta {
@@ -186,6 +199,11 @@ img { max-width: 100%; display: block; }
 .corner-marks::before { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
 .corner-marks::after { bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
 
+.service-card.corner-marks:hover::before,
+.service-card.corner-marks:hover::after {
+  border-color: rgba(255,255,255,0.4);
+}
+
 /* ==========================================================================
    Reveal al hacer scroll (reemplaza AOS, sin librería externa)
    ========================================================================== */
@@ -211,6 +229,25 @@ img { max-width: 100%; display: block; }
 }
 @media (min-width: 768px) {
   .hero { padding: 13rem 0 10rem; }
+}
+
+.hero::before, .hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.3;
+}
+.hero::before {
+  width: 520px; height: 520px;
+  background: var(--color-cyan);
+  top: -160px; right: -180px;
+}
+.hero::after {
+  width: 440px; height: 440px;
+  background: var(--color-magenta);
+  bottom: -140px; left: -140px;
 }
 
 .hero .crosshair {
@@ -260,19 +297,34 @@ img { max-width: 100%; display: block; }
    ========================================================================== */
 
 .brand-bar {
-  border-top: 1px solid rgba(11,11,12,0.1);
-  border-bottom: 1px solid rgba(11,11,12,0.1);
-  background: white;
-  padding: 1.5rem 0;
+  background: linear-gradient(100deg, var(--color-cyan) 0%, var(--color-cyan-dark) 35%, var(--color-magenta-dark) 65%, var(--color-magenta) 100%);
+  padding: 1.1rem 0;
 }
 .brand-bar .container {
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem;
-  font-size: 0.75rem; text-transform: uppercase; color: rgba(11,11,12,0.5);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 2.5rem;
+  font-size: 0.75rem; text-transform: uppercase; color: white;
+  font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.06em;
+  text-align: center;
+}
+.brand-bar .container span { opacity: 0.95; position: relative; }
+.brand-bar .container span:not(:last-child)::after {
+  content: '·';
+  position: absolute;
+  right: -1.35rem;
+  opacity: 0.6;
 }
 
 /* ==========================================================================
    Servicios
    ========================================================================== */
+
+/* Tintes de sección — para que el rosa/celeste tengan más presencia que el blanco plano */
+.section-tint-cyan {
+  background: linear-gradient(180deg, rgba(31,173,224,0.09), rgba(31,173,224,0.02) 55%, transparent 100%);
+}
+.section-tint-magenta {
+  background: linear-gradient(180deg, rgba(232,18,126,0.08), rgba(232,18,126,0.02) 55%, transparent 100%);
+}
 
 .section { padding: 7rem 0; }
 
@@ -300,11 +352,15 @@ img { max-width: 100%; display: block; }
   display: block;
   background: var(--color-paper);
   padding: 2.5rem;
+  border-top: 3px solid var(--color-cyan);
   transition: background-color 0.25s ease;
 }
+.service-card:nth-child(even) { border-top-color: var(--color-magenta); }
 .service-card:hover {
-  background: rgba(11,11,12,0.03);
+  background: var(--color-ink);
 }
+.service-card:hover h3 { color: white; }
+.service-card:hover p { color: rgba(255,255,255,0.6); }
 .service-card .num { font-size: 0.75rem; }
 .service-card h3 { font-size: 1.5rem; margin: 1rem 0 0.75rem; }
 .service-card p { color: rgba(11,11,12,0.6); margin: 0; }
@@ -430,6 +486,7 @@ img { max-width: 100%; display: block; }
   background-color: var(--color-ink);
   cursor: pointer;
   isolation: isolate;
+  border-radius: 12px;
 }
 
 .photo-card img {
@@ -537,112 +594,14 @@ img { max-width: 100%; display: block; }
    Página de Contacto
    ========================================================================== */
 
-.contact-quick-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-  margin-bottom: 5rem;
-}
-@media (min-width: 768px) {
-  .contact-quick-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-.contact-quick-card {
-  display: block;
-  padding: 2rem;
-  border: 1px solid rgba(11,11,12,0.12);
-  background: white;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-.contact-quick-card:hover {
-  border-color: var(--color-cyan);
-  transform: translateY(-3px);
-}
-.contact-quick-card.is-preferred {
-  border-color: var(--color-magenta);
-  background: rgba(232,18,126,0.04);
-}
-.contact-quick-card .badge {
-  display: inline-block;
-  font-size: 0.65rem;
-  color: var(--color-magenta);
-  margin-bottom: 1rem;
-}
-.contact-quick-card .icon-wrap {
-  width: 44px; height: 44px;
-  border-radius: 9999px;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--color-ink);
-  color: white;
-  margin-bottom: 1.25rem;
-}
-.contact-quick-card h3 { font-size: 1.15rem; margin: 0 0 0.35rem; }
-.contact-quick-card p { color: rgba(11,11,12,0.55); font-size: 0.9rem; margin: 0; }
-
-.contact-form-wrap {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 3rem;
-  background: white;
-  border: 1px solid rgba(11,11,12,0.1);
-}
-@media (max-width: 640px) {
-  .contact-form-wrap { padding: 2rem 1.5rem; }
-}
-
-.form-group { margin-bottom: 1.5rem; }
-.form-group label {
-  display: block;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.5rem;
-  color: rgba(11,11,12,0.6);
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  border: 1px solid rgba(11,11,12,0.2);
-  background: var(--color-paper);
-  color: var(--color-ink);
-  transition: border-color 0.2s ease;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-cyan);
-}
-.form-group textarea { resize: vertical; min-height: 110px; }
-
-.form-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 2rem;
-}
-.form-actions .btn { justify-content: center; width: 100%; }
-.form-hint {
-  font-size: 0.8rem;
-  color: rgba(11,11,12,0.45);
-  margin-top: 1rem;
-  text-align: center;
-}
-
-/* ==========================================================================
-   Página de Contacto
-   ========================================================================== */
-
 .contact-channels {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 0;
   margin-bottom: 5rem;
+  border: 1px solid rgba(11,11,12,0.08);
+  border-radius: 16px;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .contact-channels { grid-template-columns: repeat(3, 1fr); }
@@ -652,26 +611,43 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem;
-  border: 1px solid rgba(11,11,12,0.1);
+  padding: 2.25rem 2rem;
   background: white;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  border-bottom: 1px solid rgba(11,11,12,0.08);
+  transition: background-color 0.25s ease, transform 0.2s ease;
 }
+@media (min-width: 768px) {
+  .channel-card {
+    border-bottom: none;
+    border-right: 1px solid rgba(11,11,12,0.08);
+  }
+  .channel-card:last-child { border-right: none; }
+}
+.channel-card:last-child { border-bottom: none; }
+
 .channel-card:hover {
-  border-color: var(--color-cyan);
-  transform: translateY(-3px);
+  background: rgba(31,173,224,0.06);
 }
-.channel-card.is-primary:hover { border-color: var(--color-magenta); }
+
+.channel-card.is-primary {
+  background: linear-gradient(160deg, var(--color-magenta) 0%, var(--color-magenta-dark) 100%);
+}
+.channel-card.is-primary h3,
+.channel-card.is-primary .channel-value { color: white; }
+.channel-card.is-primary p { color: rgba(255,255,255,0.8); }
+.channel-card.is-primary:hover {
+  background: linear-gradient(160deg, var(--color-magenta-dark) 0%, var(--color-magenta) 100%);
+}
 
 .channel-icon {
   width: 44px; height: 44px;
   border-radius: 9999px;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(11,11,12,0.05);
-  color: var(--color-ink);
+  background: rgba(31,173,224,0.12);
+  color: var(--color-cyan-dark);
 }
 .channel-card.is-primary .channel-icon {
-  background: var(--color-magenta);
+  background: rgba(255,255,255,0.2);
   color: white;
 }
 .channel-icon svg { width: 20px; height: 20px; }
@@ -691,6 +667,14 @@ img { max-width: 100%; display: block; }
   color: var(--color-magenta);
   font-family: 'Space Grotesk', sans-serif;
 }
+.channel-card.is-primary .tag-preferred {
+  color: white;
+  background: rgba(255,255,255,0.2);
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  width: fit-content;
+}
 
 /* Formulario */
 .contact-form-wrap {
@@ -699,6 +683,7 @@ img { max-width: 100%; display: block; }
   padding: 3rem;
   background: var(--color-ink);
   color: white;
+  border-radius: 16px;
 }
 @media (max-width: 640px) {
   .contact-form-wrap { padding: 2rem 1.25rem; }
@@ -723,6 +708,7 @@ img { max-width: 100%; display: block; }
   width: 100%;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
   color: white;
   padding: 0.85rem 1rem;
   font-family: 'Inter', sans-serif;

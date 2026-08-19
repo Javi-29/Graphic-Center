@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (matchingOption) serviceInput.value = preselected;
     }
 
-    const WHATSAPP_NUMBER = '50762037258'; 
-    const CONTACT_EMAIL = 'ventas@graphiccenterpa.com'; 
+    const WHATSAPP_NUMBER = '50762037258'; // <-- reemplaza por tu número real (con código de país, sin + ni espacios)
+    const CONTACT_EMAIL = 'ventas@graphiccenterpa.com'; // <-- reemplaza por tu correo real
 
     function buildMessage() {
       const name = nameInput.value.trim();
