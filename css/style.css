@@ -9,6 +9,14 @@
   --color-magenta-dark: #B80E62;
   --color-ink: #0B0B0C;
   --color-paper: #FAFAF9;
+
+  /* Estados (usados por el módulo de inventario y disponibles para el resto del sitio) */
+  --color-ok: #1F7A45;
+  --color-ok-bg: #E2F2E8;
+  --color-warn: #8A5A00;
+  --color-warn-bg: #FBEFD6;
+  --color-crit: #A61B1B;
+  --color-crit-bg: #FBE4E4;
 }
 
 * { box-sizing: border-box; }

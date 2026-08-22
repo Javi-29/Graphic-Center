@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inventario — Graphic Center</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+<!-- CSS del proyecto ya existente -->
+<link rel="stylesheet" href="../css/style.css">
+<!-- CSS propio de este módulo (usa las mismas variables de marca) -->
+<link rel="stylesheet" href="../css/inventario.css">
+</head>
+<body>
+
+<header class="inv-top">
+  <div class="container">
+    <a href="../index.html" class="inv-back">&larr; Sitio</a>
+    <div class="inv-brand">Inventario <span class="accent">GC</span></div>
+    <div class="inv-status" id="chip"><span class="dot"></span><span id="chiptxt">Cargando…</span></div>
+  </div>
+</header>
+
+<main class="inv-app">
+  <div class="container">
+    <div class="inv-tabs" role="tablist" id="tabs"></div>
+    <div id="avisos"></div>
+    <div id="vista"></div>
+  </div>
+</main>
+
+<script src="../js/inventario.js"></script>
+</body>
+</html>
