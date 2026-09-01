@@ -113,13 +113,13 @@
 
       <div class="form-two-col">
         <div class="form-row">
-          <label for="cf-contact">Teléfono o correo</label>
-          <input type="text" id="cf-contact" name="cf-contact" placeholder="Para que te respondamos">
+          <label for="cf-contact">Teléfono o correo *</label>
+          <input type="text" id="cf-contact" name="cf-contact" placeholder="Para que te respondamos" required>
         </div>
         <div class="form-row">
-          <label for="cf-service">Servicio de interés</label>
-          <select id="cf-service" name="cf-service">
-            <option value="">Selecciona uno (opcional)</option>
+          <label for="cf-service">Servicio de interés *</label>
+          <select id="cf-service" name="cf-service" required>
+            <option value="" disabled selected>Selecciona uno</option>
             <option value="DTF Textil">DTF Textil</option>
             <option value="DTF UV">DTF UV</option>
             <option value="Corte de vinil">Corte de vinil</option>
@@ -139,11 +139,10 @@
       </div>
 
       <div class="form-actions">
-        <button type="button" id="sendWhatsapp" class="btn btn-magenta chip">Enviar por WhatsApp</button>
-        <button type="button" id="sendEmail" class="btn btn-outline chip" style="border-color:rgba(255,255,255,0.25); color:white;">Enviar por correo</button>
-      </div>
-
-      <p class="form-note">Al enviar, se abrirá WhatsApp o tu app de correo con el mensaje ya redactado — tú confirmas el envío final.</p>
+  <button type="button" id="sendWhatsapp" class="btn btn-magenta chip">Enviar por WhatsApp</button>
+  <button type="button" id="sendEmail" class="btn btn-cyan-outline chip">Enviar por correo</button>
+</div>
+      <p class="form-note"><br><br>Se abrirá WhatsApp o tu correo con el mensaje listo. ¿Tienes un archivo? Puedes adjuntarlo una vez inicie la conversación.</p>
     </form>
   </div>
 </section>

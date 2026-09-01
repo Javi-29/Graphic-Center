@@ -781,3 +781,24 @@ img { max-width: 100%; display: block; }
 .site-footer .brand .accent { color: var(--color-magenta); }
 .footer-social { display: flex; gap: 1.5rem; }
 .footer-social a:hover { color: var(--color-cyan); }
+
+.btn-cyan-outline {
+  background: var(--color-cyan);
+  border: 2px solid rgb(255, 255, 255);
+  color: white;
+}
+.btn-cyan-outline:hover {
+  background: var(--color-ink);
+  border-color: var(--color-cyan);
+  color: white;
+}
+
+.btn-magenta {
+  background: var(--color-magenta);
+  color: white;
+  border: 2px solid rgb(255, 255, 255);
+}
+.btn-magenta:hover {
+  background: var(--color-ink);
+  border-color: var(--color-magenta);
+}
