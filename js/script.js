@@ -64,11 +64,25 @@ document.addEventListener('DOMContentLoaded', () => {
       return dot;
     });
 
+    // Carga diferida: cada imagen guarda su URL real en data-src y solo se
+    // asigna a src cuando la diapositiva está por verse (actual + vecinas),
+    // para no descargar las 30 páginas del catálogo de una sola vez.
+    function loadSlide(i) {
+      const img = slides[(i + slides.length) % slides.length].querySelector('img');
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+        delete img.dataset.src;
+      }
+    }
+
     function goTo(newIndex) {
       index = (newIndex + slides.length) % slides.length;
       track.style.transform = `translateX(-${index * 100}%)`;
       currentLabel.textContent = index + 1;
       dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+      loadSlide(index - 1);
+      loadSlide(index);
+      loadSlide(index + 1);
       if (lightbox.classList.contains('is-open')) {
         lightboxImg.src = slides[index].querySelector('img').src;
       }
