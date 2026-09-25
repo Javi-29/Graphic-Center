@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /Inventario/
+Disallow: /Demos/
+
+Sitemap: https://graphiccenterpa.com/sitemap.xml
