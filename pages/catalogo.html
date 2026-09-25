@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo de Productos — Graphic Center Plus</title>
 <meta name="description" content="Explora el catálogo completo de productos y servicios de Graphic Center Plus.">
+<link rel="icon" type="image/png" href="../assets/img/logo.png">
+<link rel="canonical" href="https://graphiccenterpa.com/pages/catalogo.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Catálogo de Productos — Graphic Center Plus">
+<meta property="og:description" content="Explora el catálogo completo de productos y servicios de Graphic Center Plus.">
+<meta property="og:image" content="https://graphiccenterpa.com/assets/img/logo.png">
+<meta property="og:url" content="https://graphiccenterpa.com/pages/catalogo.html">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -52,16 +61,39 @@
   </div>
 </section>
 
-<!-- ===== VISOR DEL PDF ===== -->
+<!-- ===== CARRUSEL DE IMÁGENES DEL CATÁLOGO ===== -->
 <div class="catalog-viewer-wrap">
-  <iframe id="catalogFrame" class="catalog-frame" src="../assets/pdf/catalogo.pdf" title="Catálogo Graphic Center Plus"></iframe>
+  <div class="catalog-carousel" id="catalogCarousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <img src="../assets/img/catalogo/catalogo-01.jpg" onerror="this.src='https://picsum.photos/seed/catalogo01/850/1100'" alt="Catálogo Graphic Center Plus — página 1" loading="eager">
+      </div>
+      <div class="carousel-slide">
+        <img src="../assets/img/catalogo/catalogo-02.jpg" onerror="this.src='https://picsum.photos/seed/catalogo02/850/1100'" alt="Catálogo Graphic Center Plus — página 2" loading="lazy">
+      </div>
+      <div class="carousel-slide">
+        <img src="../assets/img/catalogo/catalogo-03.jpg" onerror="this.src='https://picsum.photos/seed/catalogo03/850/1100'" alt="Catálogo Graphic Center Plus — página 3" loading="lazy">
+      </div>
+      <div class="carousel-slide">
+        <img src="../assets/img/catalogo/catalogo-04.jpg" onerror="this.src='https://picsum.photos/seed/catalogo04/850/1100'" alt="Catálogo Graphic Center Plus — página 4" loading="lazy">
+      </div>
+    </div>
 
-  <!-- Respaldo: se muestra automáticamente si el navegador (típico en móvil) no puede
-       renderizar el PDF embebido. Ver js/script.js -->
-  <div id="catalogFallback" class="catalog-fallback">
-    <p>Tu dispositivo no puede mostrar el catálogo directamente aquí.</p>
-    <p style="margin-top:0.5rem;"><strong>Descárgalo o ábrelo en una pestaña nueva:</strong></p>
+    <button type="button" class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Página anterior">‹</button>
+    <button type="button" class="carousel-arrow carousel-next" id="carouselNext" aria-label="Página siguiente">›</button>
+
+    <div class="carousel-counter"><span id="carouselCurrent">1</span> / <span id="carouselTotal"></span></div>
+    <div class="carousel-dots" id="carouselDots"></div>
   </div>
+  <p class="carousel-hint">Toca una imagen para verla en grande</p>
+</div>
+
+<!-- ===== LIGHTBOX (vista ampliada de la página del catálogo) ===== -->
+<div class="lightbox" id="catalogLightbox">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Cerrar">&times;</button>
+  <button type="button" class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Anterior">‹</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button type="button" class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Siguiente">›</button>
 </div>
 
 <div class="container">
@@ -90,7 +122,6 @@
     <span>© 2026 Graphic Center Plus. Todos los derechos reservados.</span>
     <div class="footer-social">
       <a href="https://www.instagram.com/graphiccenterdavid" target="_blank">Instagram</a>
-      <a href="#">Facebook</a>
     </div>
   </div>
 </footer>
